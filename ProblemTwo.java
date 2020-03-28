@@ -7,24 +7,38 @@ import java.math.*;
 class ProblemTwo{
     public static void main(String args[]){
 
-        double fib = 0;
-        long target = 40;
+        long f1 = 1;  //first two terms of fibonacci series are 1;
+        long f2 = 1;
+        long result = 0;
+        long sum = 0;
         
 
+        //Fibonacci series using Formula;
+        //-------------------------------
 
-        for(long i = 0; i <= target; i++){
+        /*for(long i = 0; i <= target; i++){
             fib = (Math.pow((1 + Math.sqrt(5)), i) -  Math.pow((1 - Math.sqrt(5)), i)) /  (Math.pow(2, i) * Math.sqrt(5)); 
             
         }
         System.out.println((int)fib);
 
-        if((int)fib > 400000){
-            System.out.println("True");
-        }
-        else{
-            System.out.println("False");
-        }
+        */
 
 
+        //Using Brute-Force Approach :
+
+        while(result < 4000000){
+            if(result % 2 == 0){
+                sum = sum + result;
+            }
+
+            result = f1 + f2;
+            f2 = f1;
+            f1 = result;
+            System.out.println(result);
+        }
+
+        System.out.println("Sum = " + sum);
+       
     }
 }
